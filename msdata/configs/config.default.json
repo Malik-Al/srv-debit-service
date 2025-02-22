@@ -1,0 +1,33 @@
+{
+    "main": {
+      "instance": "srv-debit-service",
+      "service": "srv-debit-service",
+      "port": 8020
+    },
+    "logger": {
+      "logLevel": "trace",
+      "logMode": "console"
+    },
+    "db": {
+      "postgres": {
+        "host": "localhost",
+        "port": 5432,
+        "user": "malik",
+        "password": "malik",
+        "databases": "debit_service",
+        "schema": "main"
+      }
+    },
+    "swagger": {
+      "title": "srv-debit-service",
+      "desc": "Сервис списание денежных срества",
+      "version": "0.0.1",
+      "tag": "POP THE TAG"
+    },
+    "redis": {
+      "url": "redis://localhost:6379",
+      "expirationTime": 86400,
+      "key": "ban-words"
+    }
+  }
+  
