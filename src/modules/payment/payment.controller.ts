@@ -8,11 +8,12 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { RefId } from 'src/decorators/ref.decorator';
-import { PaymentDto } from './dto/dto';
+import { PaymentDto, ResponseSuccesCreate } from './dto/dto';
 import { PaymentService } from './payment.service';
 import { CustomLogger } from 'src/helpers/logger/logger.service';
 import { CheckUserGuard, CustomRequest } from 'src/decorators/check-user';
 import { IResponse } from 'src/helpers/types/response.type';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Controller('payment')
 export class PaymentController {
@@ -22,6 +23,7 @@ export class PaymentController {
   ) { }
 
   @Post()
+  @ApiResponse({ status: 200, type: ResponseSuccesCreate })
   @UsePipes(new ValidationPipe({ transform: true }))
   @UseGuards(CheckUserGuard)
   async paymentController(

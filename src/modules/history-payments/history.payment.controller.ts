@@ -12,7 +12,9 @@ import { CustomLogger } from 'src/helpers/logger/logger.service';
 import { IResponse } from 'src/helpers/types/response.type';
 import { HistoryPaymentService } from './history.payment.service';
 import { CheckUserGuard, CustomRequest } from 'src/decorators/check-user';
-import { QueryDto } from './dto/query';
+import { QueryDto, ResponseHistoryDto } from './dto/query';
+import { ApiResponse } from '@nestjs/swagger';
+import { Payments } from '../database/entities/history.payment';
 
 @Controller('history-payment')
 export class HistoryPaymentController {
@@ -22,13 +24,14 @@ export class HistoryPaymentController {
   ) { }
 
   @Get(':id')
+  @ApiResponse({ status: 200, type: ResponseHistoryDto })
   @UsePipes(new ValidationPipe({ transform: true }))
   @UseGuards(CheckUserGuard)
   async userOperationHistoryController(
     @RefId() refId: string,
     @Req() req: CustomRequest,
     @Query() query: QueryDto
-  ): Promise<IResponse<any>> {
+  ): Promise<IResponse<Payments>> {
     this.logger.info(`
         [START] userOperationHistoryController 
         query: ${JSON.stringify(query)}`,
