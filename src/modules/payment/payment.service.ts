@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { PaymentDto } from './dtos/dto';
+import { PaymentDto } from './dto/dto';
 import { CustomLogger } from 'src/helpers/logger/logger.service';
 import { User } from '../database/entities/user.entity';
 import { DataSource } from 'typeorm';

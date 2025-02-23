@@ -8,7 +8,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { RefId } from 'src/decorators/ref.decorator';
-import { PaymentDto } from './dtos/dto';
+import { PaymentDto } from './dto/dto';
 import { PaymentService } from './payment.service';
 import { CustomLogger } from 'src/helpers/logger/logger.service';
 import { CheckUserGuard, CustomRequest } from 'src/decorators/check-user';
