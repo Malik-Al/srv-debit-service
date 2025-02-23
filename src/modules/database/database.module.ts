@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Payments } from './entities/history,payment';
+import { Payments } from './entities/history.payment';
 import { User } from './entities/user.entity';
 import config from "../../../msdata/configs/config.default.json";
 
@@ -23,4 +23,4 @@ import config from "../../../msdata/configs/config.default.json";
   ],
 })
 
-export class DatabaseModule {}
+export class DatabaseModule { }

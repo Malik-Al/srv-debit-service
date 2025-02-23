@@ -1,13 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 
-@Entity({name: 'users', 'schema': 'main'})
+@Entity({ name: 'users', 'schema': 'main' })
 export class User {
-  @ApiProperty({})  
+  @ApiProperty({})
   @PrimaryGeneratedColumn()
   user_id: number;
 
-  @ApiProperty({})  
+  @ApiProperty({})
   @Column({ type: 'decimal', precision: 10, scale: 2, nullable: false })
   balance: number;
 }
