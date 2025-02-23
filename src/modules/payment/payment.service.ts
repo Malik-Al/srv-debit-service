@@ -4,6 +4,7 @@ import { CustomLogger } from 'src/helpers/logger/logger.service';
 import { User } from '../database/entities/user.entity';
 import { DataSource } from 'typeorm';
 import { Payments } from '../database/entities/history.payment';
+import { Operations } from './type';
 
 @Injectable()
 export class PaymentService {
@@ -43,7 +44,7 @@ export class PaymentService {
 
       await queryRunner.manager.save(Payments, {
         user_id: user.user_id,
-        action: 'DEBIT',
+        action: Operations.DEBIT,
         amount: amount
       }
       );
